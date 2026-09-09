@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Admin Dashboard | EduNest Home Tuition</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- =========================================================================
+       ADMIN SIDEBAR
+       ========================================================================= -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    
+    <!-- Sidebar Header -->
+    <div class="admin-sidebar-header">
+      <div class="brand-icon">
+        <i class="fa-solid fa-graduation-cap"></i>
+      </div>
+      <div>
+        <h2>EduNest Admin</h2>
+        <span class="brand-tagline" style="color: #64748b; font-size: 0.7rem;">Teacher Management Portal</span>
+      </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="admin-nav">
+      <div class="admin-nav-category">Main Menu</div>
+      
+      <a class="admin-nav-link active" data-filter="all" id="navFilterAll">
+        <div class="admin-nav-link-content">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>All Registrations</span>
+        </div>
+        <span class="admin-nav-badge" id="badgeAllCount">0</span>
+      </a>
+
+      <a class="admin-nav-link" data-filter="New" id="navFilterNew">
+        <div class="admin-nav-link-content">
+          <i class="fa-solid fa-bell" style="color: #38bdf8;"></i>
+          <span>New Registrations</span>
+        </div>
+        <span class="admin-nav-badge" style="background: #2563eb;" id="badgeNewCount">0</span>
+      </a>
+
+      <a class="admin-nav-link" data-filter="Contacted" id="navFilterContacted">
+        <div class="admin-nav-link-content">
+          <i class="fa-solid fa-comments" style="color: #fbbf24;"></i>
+          <span>Contacted</span>
+        </div>
+        <span class="admin-nav-badge" style="background: #d97706;" id="badgeContactedCount">0</span>
+      </a>
+
+      <a class="admin-nav-link" data-filter="Confirmed" id="navFilterConfirmed">
+        <div class="admin-nav-link-content">
+          <i class="fa-solid fa-circle-check" style="color: #34d399;"></i>
+          <span>Confirmed Students</span>
+        </div>
+        <span class="admin-nav-badge" style="background: #059669;" id="badgeConfirmedCount">0</span>
+      </a>
+
+      <a class="admin-nav-link" data-filter="Completed" id="navFilterCompleted">
+        <div class="admin-nav-link-content">
+          <i class="fa-solid fa-box-archive" style="color: #a78bfa;"></i>
+          <span>Completed / Active</span>
+        </div>
+        <span class="admin-nav-badge" id="badgeCompletedCount">0</span>
+      </a>
+
+      <div class="admin-nav-category" style="margin-top: 1.5rem;">Quick Links</div>
+
+      <a href="../index.html" target="_blank" class="admin-nav-link">
+        <div class="admin-nav-link-content">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          <span>View Public Site</span>
+        </div>
+      </a>
+
+      <a href="../register.html" target="_blank" class="admin-nav-link">
+        <div class="admin-nav-link-content">
+          <i class="fa-solid fa-user-plus"></i>
+          <span>Open Registration Form</span>
+        </div>
+      </a>
+
+    </nav>
+
+    <!-- Teacher Profile / Logout Footer -->
+    <div class="admin-user-profile">
+      <div class="admin-user-info">
+        <div class="admin-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="admin-user-text" id="btnOpenProfileModal" style="cursor: pointer;" title="Click to view & edit Profile / Password">
+          <h4 id="sidebarUserName">K. Sarada</h4>
+          <p id="sidebarUserEmail">edunest19@gmail.com</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 0.35rem; align-items: center;">
+        <button class="action-btn" id="btnSidebarSettings" title="Teacher Profile & Password Settings" style="background: #1e293b; border-color: #334155; color: #38bdf8;">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+        <button class="action-btn" id="adminLogoutBtn" title="Logout" style="background: #1e293b; border-color: #334155; color: #f87171;">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- =========================================================================
+       MAIN CONTENT
+       ========================================================================= -->
+  <main class="admin-main">
+    
+    <!-- Topbar Greeting & Date -->
+    <div class="admin-topbar">
+      <div class="admin-greeting">
+        <h1 id="greetingTitle">Good Day, Teacher</h1>
+        <p>Here is the real-time overview of your home tuition slot bookings and student registrations.</p>
+      </div>
+
+      <div class="admin-top-actions">
+        <button type="button" class="btn btn-secondary" id="btnRefreshData">
+          <i class="fa-solid fa-rotate-right"></i> Refresh
+        </button>
+        <button type="button" class="btn btn-teal" id="btnExportCsv">
+          <i class="fa-solid fa-file-csv"></i> Export CSV
+        </button>
+      </div>
+    </div>
+
+    <!-- Overview Stat Cards -->
+    <div class="metrics-grid">
+      
+      <div class="metric-card">
+        <div class="metric-data">
+          <h4>Total Registrations</h4>
+          <div class="metric-val" id="metricTotal">0</div>
+        </div>
+        <div class="metric-icon-box" style="background: #eff6ff; color: #2563eb;">
+          <i class="fa-solid fa-users"></i>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-data">
+          <h4>New (Pending)</h4>
+          <div class="metric-val" id="metricNew" style="color: #2563eb;">0</div>
+        </div>
+        <div class="metric-icon-box" style="background: #dbeafe; color: #1e40af;">
+          <i class="fa-solid fa-bell"></i>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-data">
+          <h4>Contacted</h4>
+          <div class="metric-val" id="metricContacted" style="color: #d97706;">0</div>
+        </div>
+        <div class="metric-icon-box" style="background: #fffbeb; color: #d97706;">
+          <i class="fa-solid fa-phone-volume"></i>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-data">
+          <h4>Confirmed</h4>
+          <div class="metric-val" id="metricConfirmed" style="color: #059669;">0</div>
+        </div>
+        <div class="metric-icon-box" style="background: #ecfdf5; color: #059669;">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Search and Multi-Filter Controls -->
+    <div class="admin-controls-card">
+      <div class="filter-grid">
+        
+        <!-- Search Input -->
+        <div class="search-input-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="searchInput" class="form-input" placeholder="Search by name, phone, or ID (e.g. HT-2026)...">
+        </div>
+
+        <!-- Class Filter -->
+        <div>
+          <select id="filterClass" class="form-select">
+            <option value="">All Classes</option>
+            <option value="8th Standard">8th Standard</option>
+            <option value="9th Standard">9th Standard</option>
+            <option value="10th Standard">10th Standard</option>
+            <option value="11th Standard">11th Standard</option>
+            <option value="12th Standard">12th Standard</option>
+          </select>
+        </div>
+
+        <!-- Board Filter -->
+        <div>
+          <select id="filterBoard" class="form-select">
+            <option value="">All Boards</option>
+            <option value="CBSE">CBSE</option>
+            <option value="ICSE">ICSE / ISC</option>
+            <option value="State Board">State Board</option>
+          </select>
+        </div>
+
+        <!-- Subject Filter -->
+        <div>
+          <select id="filterSubject" class="form-select">
+            <option value="">All Subjects</option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Mathematics">Mathematics</option>
+          </select>
+        </div>
+
+        <!-- Status Filter -->
+        <div>
+          <select id="filterStatus" class="form-select">
+            <option value="">All Statuses</option>
+            <option value="New">New</option>
+            <option value="Contacted">Contacted</option>
+            <option value="Confirmed">Confirmed</option>
+            <option value="Completed">Completed</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+        </div>
+
+        <!-- Reset Button -->
+        <div>
+          <button type="button" class="btn btn-secondary" id="btnResetFilters" title="Clear all filters">
+            <i class="fa-solid fa-filter-circle-xmark"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Registrations Data Table -->
+    <div class="table-card">
+      <div class="table-header-bar">
+        <div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-dark);">Student Registrations</h3>
+          <span style="font-size: 0.85rem; color: var(--text-muted);" id="tableCountDisplay">Showing 0 of 0 registrations</span>
+        </div>
+        <div id="tableLoadingSpinner" style="display: none; color: var(--accent); font-size: 0.9rem; font-weight: 600;">
+          <i class="fa-solid fa-spinner fa-spin"></i> Syncing...
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Reg ID</th>
+              <th>Student Details</th>
+              <th>Class &amp; Board</th>
+              <th>Subjects</th>
+              <th>Monthly Fee</th>
+              <th>Parent &amp; Phone</th>
+              <th>Preferred Slot</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="registrationsTableBody">
+            <!-- Populated via JS -->
+            <tr>
+              <td colspan="9" style="text-align: center; padding: 3rem; color: var(--text-muted);">
+                <i class="fa-solid fa-spinner fa-spin" style="font-size: 1.5rem; margin-bottom: 0.5rem; display: block;"></i>
+                Loading registrations...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- =========================================================================
+       TEACHER PROFILE & ACCOUNT SETTINGS MODAL
+       ========================================================================= -->
+  <div class="modal-overlay" id="profileSettingsModal">
+    <div class="modal-card">
+      
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-user-gear" style="color: var(--accent);"></i> Teacher Profile &amp; Security</h3>
+        <button type="button" class="modal-close-btn" id="btnCloseProfileModal" title="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        
+        <!-- Profile Details Overview -->
+        <div class="modal-section">
+          <div class="modal-section-title">
+            <i class="fa-solid fa-id-card" style="color: var(--accent);"></i> Active Profile Details
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.88rem;">
+            <div>
+              <span style="color: var(--text-muted); display: block; font-size: 0.75rem; text-transform: uppercase;">Teacher Name</span>
+              <strong id="modalProfileName" style="color: var(--text-dark);">K. Sarada</strong>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); display: block; font-size: 0.75rem; text-transform: uppercase;">Registered Mobile</span>
+              <strong id="modalProfilePhone" style="color: var(--text-dark);">+91 90630 30342</strong>
+            </div>
+            <div style="grid-column: span 2;">
+              <span style="color: var(--text-muted); display: block; font-size: 0.75rem; text-transform: uppercase;">Admin Email</span>
+              <strong id="modalProfileEmail" style="color: var(--text-dark);">edunest19@gmail.com</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Change Password / Send Reset Email Section -->
+        <div class="modal-section">
+          <div class="modal-section-title">
+            <i class="fa-solid fa-key" style="color: #d97706;"></i> Change Password
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            You can send a secure reset link to your email, or update your password directly below.
+          </p>
+
+          <div style="margin-bottom: 0.75rem;">
+            <button type="button" class="btn btn-secondary btn-block btn-sm" id="btnSendPasswordResetModal">
+              <i class="fa-regular fa-paper-plane"></i> Send Password Reset Link to Email
+            </button>
+          </div>
+
+          <form id="modalChangePasswordForm" style="margin-top: 1rem; border-top: 1px dashed var(--border-light); padding-top: 0.75rem;">
+            <div class="form-group" style="margin-bottom: 0.65rem;">
+              <label for="modalNewPassword" class="form-label" style="font-size: 0.8rem;">New Password</label>
+              <input type="password" id="modalNewPassword" class="form-input" placeholder="At least 6 characters" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 0.65rem;">
+              <label for="modalConfirmPassword" class="form-label" style="font-size: 0.8rem;">Confirm New Password</label>
+              <input type="password" id="modalConfirmPassword" class="form-input" placeholder="Re-enter new password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm btn-block" id="btnSaveModalPassword">
+              <i class="fa-solid fa-lock"></i> Update Password Directly
+            </button>
+          </form>
+        </div>
+
+        <!-- Change Email Section -->
+        <div class="modal-section" style="margin-bottom: 0;">
+          <div class="modal-section-title">
+            <i class="fa-solid fa-envelope-open-text" style="color: var(--accent);"></i> Change Registered Email
+          </div>
+          <form id="modalChangeEmailForm">
+            <div class="form-group" style="margin-bottom: 0.65rem;">
+              <label for="modalNewEmail" class="form-label" style="font-size: 0.8rem;">New Email Address</label>
+              <input type="email" id="modalNewEmail" class="form-input" placeholder="Enter new email" required>
+            </div>
+            <button type="submit" class="btn btn-secondary btn-sm btn-block" id="btnSaveModalEmail">
+              <i class="fa-solid fa-floppy-disk"></i> Update Admin Email
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/supabase.js"></script>
+  <script src="../js/whatsapp.js"></script>
+  <script src="../js/admin-auth.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profile &amp; Tuition Dossier | EduNest Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- =========================================================================
+       ADMIN SIDEBAR
+       ========================================================================= -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="admin-sidebar-header">
+      <div class="brand-icon">
+        <i class="fa-solid fa-graduation-cap"></i>
+      </div>
+      <div>
+        <h2>EduNest Admin</h2>
+        <span class="brand-tagline" style="color: #64748b; font-size: 0.7rem;">Teacher Management Portal</span>
+      </div>
+    </div>
+
+    <nav class="admin-nav">
+      <div class="admin-nav-category">Navigation</div>
+      
+      <a href="dashboard.html" class="admin-nav-link active">
+        <div class="admin-nav-link-content">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Back to Dashboard</span>
+        </div>
+      </a>
+
+      <a href="../index.html" target="_blank" class="admin-nav-link">
+        <div class="admin-nav-link-content">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          <span>Public Website</span>
+        </div>
+      </a>
+    </nav>
+
+    <div class="admin-user-profile">
+      <div class="admin-user-info">
+        <div class="admin-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="admin-user-text">
+          <h4 id="sidebarUserName">K. Sarada</h4>
+          <p id="sidebarUserEmail">edunest19@gmail.com</p>
+        </div>
+      </div>
+      <button class="action-btn" id="adminLogoutBtn" title="Logout" style="background: #1e293b; border-color: #334155; color: #f87171;">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       MAIN CONTENT
+       ========================================================================= -->
+  <main class="admin-main">
+    
+    <!-- Topbar Breadcrumb & Actions -->
+    <div class="admin-topbar">
+      <div>
+        <a href="dashboard.html" style="font-size: 0.85rem; font-weight: 700; color: var(--accent); margin-bottom: 0.25rem; display: inline-flex; align-items: center; gap: 0.35rem;">
+          <i class="fa-solid fa-arrow-left"></i> Registrations Overview
+        </a>
+        <h1 style="font-size: 1.85rem; margin-top: 0.25rem;">
+          Student Dossier: <span id="headerStudentName" style="color: var(--primary);">Loading...</span>
+        </h1>
+      </div>
+
+      <div class="admin-top-actions">
+        <a href="#" id="topStudentWhatsAppBtn" target="_blank" class="btn btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> Chat with Parent
+        </a>
+        <button type="button" class="btn btn-secondary" onclick="window.print();">
+          <i class="fa-solid fa-print"></i> Print Dossier
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading State Container -->
+    <div id="studentLoadingContainer" style="text-align: center; padding: 4rem 2rem;">
+      <i class="fa-solid fa-spinner fa-spin" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;"></i>
+      <p style="color: var(--text-muted);">Retrieving student registration record...</p>
+    </div>
+
+    <!-- Student Detail Grid -->
+    <div class="profile-grid" id="studentContentGrid" style="display: none;">
+      
+      <!-- Left Column: Dossier Details -->
+      <div>
+        
+        <!-- 1. Academic Information -->
+        <div class="profile-card">
+          <div class="profile-card-title">
+            <span><i class="fa-solid fa-graduation-cap" style="color: var(--accent);"></i> Academic Information</span>
+            <span class="status-badge" id="badgeCurrentStatus">New</span>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-group">
+              <label>Student Full Name</label>
+              <p id="profStudentName">-</p>
+            </div>
+            <div class="info-group">
+              <label>Academic Class</label>
+              <p id="profClass">-</p>
+            </div>
+            <div class="info-group">
+              <label>Education Board</label>
+              <p id="profBoard">-</p>
+            </div>
+            <div class="info-group">
+              <label>Selected Subjects</label>
+              <p id="profSubjects" style="color: var(--accent);">-</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Contact & Home Location -->
+        <div class="profile-card">
+          <div class="profile-card-title">
+            <span><i class="fa-solid fa-address-book" style="color: var(--secondary);"></i> Contact &amp; Residential Location</span>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-group">
+              <label>Parent / Guardian Name</label>
+              <p id="profParentName">-</p>
+            </div>
+            <div class="info-group">
+              <label>Parent Primary Phone</label>
+              <p><a href="#" id="profPhoneLink" style="color: var(--text-dark);">-</a></p>
+            </div>
+            <div class="info-group">
+              <label>Parent WhatsApp</label>
+              <p id="profWhatsApp">-</p>
+            </div>
+            <div class="info-group">
+              <label>Student Mobile (Optional)</label>
+              <p id="profStudentMobile">-</p>
+            </div>
+            <div class="info-group">
+              <label>Email Address</label>
+              <p id="profEmail">-</p>
+            </div>
+            <div class="info-group" style="grid-column: 1 / -1;">
+              <label>Student's Residential Area / Locality (PM Palem &amp; Visakhapatnam area)</label>
+              <p id="profLocation" style="background: var(--bg-surface-alt); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-light); font-size: 0.95rem;">-</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Tuition Timing & Preferences -->
+        <div class="profile-card">
+          <div class="profile-card-title">
+            <span><i class="fa-regular fa-clock" style="color: var(--purple);"></i> Tuition Timing &amp; Slots</span>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-group">
+              <label>Preferred Days</label>
+              <p id="profDays">-</p>
+            </div>
+            <div class="info-group">
+              <label>Preferred Time Slot</label>
+              <p id="profTimeSlot">-</p>
+            </div>
+            <div class="info-group" style="grid-column: 1 / -1;">
+              <label>Specific Academic Notes / Requirements</label>
+              <p id="profRequirements" style="font-weight: 500; color: var(--text-body); font-style: italic;">-</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Status Transition Workflow & Teacher Notes -->
+      <div>
+        
+        <!-- Registration Metadata Card -->
+        <div class="profile-card">
+          <div class="profile-card-title">
+            <span><i class="fa-solid fa-receipt"></i> Registration Meta</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.9rem;">
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-light); padding-bottom: 0.5rem;">
+              <span style="color: var(--text-muted);">Registration ID:</span>
+              <strong id="profRegCode" style="font-family: monospace; color: var(--accent); font-size: 0.95rem;">-</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-light); padding-bottom: 0.5rem;">
+              <span style="color: var(--text-muted);">Monthly Tuition Fee:</span>
+              <strong id="profFee" style="color: var(--emerald); font-size: 1.15rem;">-</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--border-light); padding-bottom: 0.5rem;">
+              <span style="color: var(--text-muted);">Submission Date:</span>
+              <span id="profDate" style="font-weight: 600;">-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Status Action Buttons -->
+        <div class="profile-card">
+          <div class="profile-card-title">
+            <span><i class="fa-solid fa-bolt" style="color: var(--amber);"></i> Update Status</span>
+          </div>
+
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Advance the student's tuition onboarding workflow:
+          </p>
+
+          <div class="status-action-box">
+            <button type="button" class="btn btn-block" id="btnStatusContacted" style="background: #fef3c7; color: #92400e; border: 1px solid #fde68a;">
+              <i class="fa-solid fa-phone-volume"></i> Mark as Contacted
+            </button>
+            <button type="button" class="btn btn-block" id="btnStatusConfirmed" style="background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0;">
+              <i class="fa-solid fa-circle-check"></i> Mark as Confirmed
+            </button>
+            <button type="button" class="btn btn-block" id="btnStatusCompleted" style="background: #ede9fe; color: #5b21b6; border: 1px solid #ddd6fe;">
+              <i class="fa-solid fa-flag-checkered"></i> Mark as Completed
+            </button>
+            <button type="button" class="btn btn-block" id="btnStatusCancelled" style="background: #ffe4e6; color: #9f1239; border: 1px solid #fecdd3;">
+              <i class="fa-solid fa-ban"></i> Cancel Registration
+            </button>
+          </div>
+        </div>
+
+        <!-- Teacher Notes Scratchpad -->
+        <div class="profile-card">
+          <div class="profile-card-title">
+            <span><i class="fa-solid fa-pen-to-square"></i> Teacher Notes</span>
+          </div>
+
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Private notes (demo class timings, student strengths, parent discussions):
+          </p>
+
+          <textarea id="teacherNotesArea" class="form-textarea" rows="4" placeholder="Enter notes about this student..."></textarea>
+          
+          <button type="button" class="btn btn-primary btn-block" id="btnSaveTeacherNotes" style="margin-top: 0.75rem;">
+            <i class="fa-solid fa-floppy-disk"></i> Save Notes
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/config.js"></script>
+  <script src="../js/supabase.js"></script>
+  <script src="../js/whatsapp.js"></script>
+  <script src="../js/admin-auth.js"></script>
+  <script src="../js/student.js"></script>
+</body>
+</html>

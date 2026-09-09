@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduNest Home Tuition | Classes 8th - 12th (Physics, Chemistry, Maths)</title>
+  <meta name="description" content="Premium 1-on-1 personalized home tuition for Classes 8th, 9th, 10th, 11th, and 12th in Physics, Chemistry, and Mathematics across all education boards.">
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       NAVIGATION BAR
+       ========================================================================= -->
+  <nav class="site-nav" id="mainNav">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo" id="brandLogo">
+        <div class="brand-icon">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div>
+          EduNest
+          <span class="brand-tagline">Personal Home Tuition</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About Tuition</a>
+        <a href="#classes" class="nav-link">Classes</a>
+        <a href="#subjects" class="nav-link">Subjects</a>
+        <a href="#boards" class="nav-link">Boards</a>
+        <a href="#fees" class="nav-link">Fee Structure</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#faqs" class="nav-link">FAQs</a>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <a href="register.html" class="btn btn-primary" id="navRegisterBtn">
+          <i class="fa-regular fa-calendar-check"></i> Register Now
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =========================================================================
+       HERO SECTION
+       ========================================================================= -->
+  <section class="hero-section" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Left Content -->
+        <div class="hero-content">
+          <div class="hero-badge-group">
+            <span class="hero-chip"><i class="fa-solid fa-house-chimney-user"></i> In-Person Tuition at Teacher's Residence</span>
+            <span class="hero-chip"><i class="fa-solid fa-book-bookmark"></i> Classes 8th – 12th</span>
+            <span class="hero-chip"><i class="fa-solid fa-award"></i> CBSE, ICSE &amp; State Boards</span>
+          </div>
+
+          <h1 class="hero-title">
+            Personalized <span class="highlight">Home Tuition</span> for Classes 8th – 12th
+          </h1>
+
+          <p class="hero-subtitle">
+            Focused learning in <strong>Physics, Chemistry &amp; Mathematics</strong> — personalized guidance at the teacher's residence study in PM Palem, Visakhapatnam tailored to your child's academic goals, pace, and board syllabus.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="register.html" class="btn btn-primary btn-lg" id="heroRegisterCta">
+              <i class="fa-solid fa-user-plus"></i> Register for Tuition
+            </a>
+            <a href="#fees" class="btn btn-secondary btn-lg" id="heroFeeCta">
+              <i class="fa-solid fa-tags"></i> View Fee Structure
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h4>16+ Years</h4>
+              <p>Teaching Excellence</p>
+            </div>
+            <div class="stat-item">
+              <h4>1-on-1</h4>
+              <p>Focused Attention</p>
+            </div>
+            <div class="stat-item">
+              <h4>98%</h4>
+              <p>Parent Satisfaction</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Quick Calculator Card -->
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <div class="teacher-avatar-box">
+              <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <div class="teacher-meta">
+              <h3 id="heroTeacherName">K. Sarada</h3>
+              <p id="heroTeacherQual">M.Sc(pure physics),M.Phil</p>
+              <small style="color: var(--text-muted);"><i class="fa-solid fa-location-dot" style="color: var(--rose);"></i> PM Palem, Dharmapuram (Opp Living Space), Visakhapatnam</small>
+            </div>
+          </div>
+
+          <!-- Interactive Fee Estimator Widget -->
+          <div class="quick-calculator">
+            <div class="qc-title">
+              <span><i class="fa-solid fa-calculator" style="color: var(--accent);"></i> Instant Fee Estimator</span>
+              <small style="color: var(--text-muted); font-size: 0.75rem;">Select Grade &amp; Subjects</small>
+            </div>
+
+            <!-- Class Group Selector -->
+            <div class="qc-class-toggle" id="heroClassToggle">
+              <button type="button" class="qc-class-btn active" data-class-group="foundation">Classes 8th – 10th</button>
+              <button type="button" class="qc-class-btn" data-class-group="senior">Classes 11th &amp; 12th</button>
+            </div>
+            
+            <div class="qc-subjects" id="heroSubjectChips">
+              <div class="qc-chip selected" data-subject="Physics">
+                <i class="fa-solid fa-atom"></i> Physics
+              </div>
+              <div class="qc-chip selected" data-subject="Mathematics">
+                <i class="fa-solid fa-calculator"></i> Maths
+              </div>
+              <div class="qc-chip" data-subject="Chemistry">
+                <i class="fa-solid fa-flask"></i> Chemistry
+              </div>
+            </div>
+
+            <div class="qc-output">
+              <div>
+                <small style="color: var(--text-muted); display: block; font-size: 0.75rem; text-transform: uppercase; font-weight: 700;">Monthly Tuition Fee</small>
+                <span id="heroSubjectCountText" style="font-size: 0.85rem; font-weight: 600; color: var(--text-dark);">2 Subjects Selected (8th – 10th)</span>
+              </div>
+              <div class="qc-fee-val" id="heroFeeDisplay">₹1,999 <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-muted);">/ mo</span></div>
+            </div>
+          </div>
+
+          <a href="register.html" class="btn btn-teal btn-block" id="heroQuickBookBtn">
+            <i class="fa-solid fa-arrow-right"></i> Book Your Tuition Slot Now
+          </a>
+          <p style="text-align: center; font-size: 0.78rem; color: var(--text-muted); margin-top: 0.75rem;">
+            <i class="fa-solid fa-shield-halved" style="color: var(--emerald);"></i> No online payment required on website.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       ABOUT TUITION SECTION
+       ========================================================================= -->
+  <section class="section-padding bg-light-alt" id="about">
+    <div class="container">
+      <div class="about-grid">
+        
+        <div class="about-image-column">
+          <div style="background: linear-gradient(135deg, var(--primary) 0%, #26352a 100%); border-radius: var(--radius-xl); padding: 3rem 2rem; color: var(--text-light); box-shadow: var(--shadow-xl); position: relative;">
+            <span class="section-badge" style="background: rgba(255,253,248,0.15); color: #FFFDF8; border-color: rgba(255,253,248,0.3); margin-bottom: 1.5rem;">
+              <i class="fa-solid fa-house-chimney"></i> In-Person at Teacher's Residence Study
+            </span>
+            <h3 style="color: #FFFDF8; font-size: 1.85rem; margin-bottom: 1rem;">Dedicated Mentorship in PM Palem, Visakhapatnam</h3>
+            <p style="color: #EDE3D3; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem;">
+              Unlike overcrowded coaching batches or impersonal online video lessons, our in-person home tuition takes place at the teacher's residence study (PM Palem, Dharmapuram, Opp Living Space). Students attend focused evening sessions in a peaceful academic environment where the teacher personally analyzes every student's learning gaps, strengthens fundamental concepts, and builds top problem-solving confidence.
+            </p>
+            <div style="display: flex; gap: 1rem; align-items: center; border-top: 1px solid rgba(255,253,248,0.2); padding-top: 1.5rem;">
+              <i class="fa-solid fa-circle-check" style="color: var(--highlight); font-size: 1.5rem;"></i>
+              <span style="font-size: 0.9rem; color: #FFFDF8; font-weight: 600;">Direct parent progress reviews and periodic assessments</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <span class="section-badge"><i class="fa-solid fa-star"></i> Why In-Home Tutoring</span>
+          <h2>Tailored for Deep Conceptual Mastery &amp; Top Board Scores</h2>
+          <p>
+            Every student learns differently. We focus on individual pace, systematic doubt resolution, and rigorous numerical practice in Physics, Chemistry, and Mathematics.
+          </p>
+
+          <div class="about-highlights">
+            <div class="highlight-card">
+              <div class="highlight-icon"><i class="fa-solid fa-user-check"></i></div>
+              <h4>100% Personal Attention</h4>
+              <p>Zero distractions. The teacher's complete focus is on your child during the entire session.</p>
+            </div>
+            <div class="highlight-card">
+              <div class="highlight-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+              <h4>Weekly Chapter Tests</h4>
+              <p>Regular timed assessments aligned with CBSE, ICSE &amp; State Board exam formats.</p>
+            </div>
+            <div class="highlight-card">
+              <div class="highlight-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+              <h4>Concept-First Method</h4>
+              <p>Strong foundation in fundamental laws, derivations, and formula shortcuts.</p>
+            </div>
+            <div class="highlight-card">
+              <div class="highlight-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+              <h4>Flexible Time Slots</h4>
+              <p>Convenient evening tuition batches between 6:30 PM and 8:30 PM / 9:00 PM tailored to school routines.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CLASSES OFFERED (8th - 12th)
+       ========================================================================= -->
+  <section class="section-padding" id="classes">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge"><i class="fa-solid fa-layer-group"></i> Academic Standards</span>
+        <h2 class="section-title">Classes We Specialize In</h2>
+        <p class="section-desc">Personalized home tuition and competitive exam coaching exclusively for Classes 8th to 12th.</p>
+      </div>
+
+      <div class="classes-grid" id="classesGrid">
+        <!-- 8th Standard -->
+        <div class="class-card">
+          <span class="class-card-badge">Foundation Roots</span>
+          <h3>8th Standard</h3>
+          <p><strong>Basics of 8th Class:</strong> Strong foundational clarity in Mathematics, Physics &amp; Chemistry fundamentals, numerical habits &amp; concept proofs.</p>
+          <a href="register.html?class=8th" class="class-card-action">Register Class 8th <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 9th Standard -->
+        <div class="class-card">
+          <span class="class-card-badge">Bridge Foundation</span>
+          <h3>9th Standard</h3>
+          <p><strong>Basics of 9th Class:</strong> In-depth conceptual mastery, analytical problem solving, formula derivation &amp; robust bridge foundations for board prep.</p>
+          <a href="register.html?class=9th" class="class-card-action">Register Class 9th <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 10th Standard -->
+        <div class="class-card">
+          <span class="class-card-badge" style="background: #fef3c7; color: #92400e;">Board Exam Mastery</span>
+          <h3>10th Standard</h3>
+          <p><strong>Selected Board for 10th:</strong> Complete syllabus coverage for CBSE, ICSE &amp; State Board, past 10-year question banks &amp; weekly timed mock tests.</p>
+          <a href="register.html?class=10th" class="class-card-action">Register Class 10th <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 11th Standard -->
+        <div class="class-card">
+          <span class="class-card-badge">Senior Secondary &amp; Entrance</span>
+          <h3>11th Standard</h3>
+          <p><strong>11th Board + EAMCET &amp; JEE Mains / Advanced Training:</strong> Derivations, numerical mechanics, physical/organic chemistry &amp; calculus foundations.</p>
+          <a href="register.html?class=11th" class="class-card-action">Register Class 11th <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- 12th Standard -->
+        <div class="class-card">
+          <span class="class-card-badge" style="background: #fef3c7; color: #92400e;">Final Board &amp; Competitive Prep</span>
+          <h3>12th Standard</h3>
+          <p><strong>12th Board + EAMCET, JEE Mains &amp; Advanced Training:</strong> Rigorous revision, speed-accuracy drills, full-length mock series &amp; top rank preparation.</p>
+          <a href="register.html?class=12th" class="class-card-action">Register Class 12th <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SUBJECTS OFFERED (Physics, Chemistry, Mathematics)
+       ========================================================================= -->
+  <section class="section-padding bg-light-alt" id="subjects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge"><i class="fa-solid fa-book-open"></i> Subjects Taught</span>
+        <h2 class="section-title">Physics, Chemistry &amp; Mathematics</h2>
+        <p class="section-desc">Select 1, 2, or all 3 subjects. Tuition fee updates automatically according to your selection.</p>
+      </div>
+
+      <div class="subjects-grid">
+        
+        <!-- Physics Card -->
+        <div class="subject-card" style="--card-color: #35483A; --card-bg: #e6ede8;">
+          <div class="subject-icon-box"><i class="fa-solid fa-atom"></i></div>
+          <h3>Physics</h3>
+          <p>Transforming complex formulas into intuitive real-world concepts with step-by-step numerical solving.</p>
+          <ul class="subject-topics">
+            <li><i class="fa-solid fa-check"></i> Mechanics, Kinematics &amp; Dynamics</li>
+            <li><i class="fa-solid fa-check"></i> Electricity, Magnetism &amp; Optics</li>
+            <li><i class="fa-solid fa-check"></i> Thermodynamics &amp; Modern Physics</li>
+            <li><i class="fa-solid fa-check"></i> Formula derivations &amp; numerical practice</li>
+          </ul>
+        </div>
+
+        <!-- Chemistry Card -->
+        <div class="subject-card" style="--card-color: #8A6A4A; --card-bg: #f5eee6;">
+          <div class="subject-icon-box"><i class="fa-solid fa-flask"></i></div>
+          <h3>Chemistry</h3>
+          <p>Clear understanding of chemical bonding, balanced reactions, and systematic organic reaction pathways.</p>
+          <ul class="subject-topics">
+            <li><i class="fa-solid fa-check"></i> Physical Chemistry &amp; Stoichiometry</li>
+            <li><i class="fa-solid fa-check"></i> Inorganic Chemistry &amp; Periodic Trends</li>
+            <li><i class="fa-solid fa-check"></i> Organic Reaction Mechanisms &amp; IUPAC</li>
+            <li><i class="fa-solid fa-check"></i> Equation balancing &amp; chemical calculations</li>
+          </ul>
+        </div>
+
+        <!-- Mathematics Card -->
+        <div class="subject-card" style="--card-color: #C7A76C; --card-bg: #fbf6ec;">
+          <div class="subject-icon-box"><i class="fa-solid fa-calculator"></i></div>
+          <h3>Mathematics</h3>
+          <p>Eliminating fear of maths through logical proofs, geometry visualization, and algebraic shortcuts.</p>
+          <ul class="subject-topics">
+            <li><i class="fa-solid fa-check"></i> Algebra, Quadratic Equations &amp; Polynomials</li>
+            <li><i class="fa-solid fa-check"></i> Trigonometry &amp; Coordinate Geometry</li>
+            <li><i class="fa-solid fa-check"></i> Differential &amp; Integral Calculus</li>
+            <li><i class="fa-solid fa-check"></i> Speed-solving techniques &amp; theorem proofs</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       EDUCATION BOARDS SUPPORTED
+       ========================================================================= -->
+  <section class="section-padding" id="boards">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge"><i class="fa-solid fa-school"></i> Specialized Curriculums</span>
+        <h2 class="section-title">Education Boards We Cater To</h2>
+        <p class="section-desc">Our home tuition strictly aligns with the official syllabus, marking schemes &amp; exam patterns of your child's board.</p>
+      </div>
+
+      <div class="boards-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <div class="board-card">
+          <div class="board-logo-txt">CBSE</div>
+          <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 600; margin-bottom: 0.35rem;">Central Board of Secondary Education</p>
+          <p>NCERT Syllabus, Exemplar Problems, Step-Marking Strategies &amp; Timed Mock Tests.</p>
+        </div>
+        <div class="board-card">
+          <div class="board-logo-txt">ICSE / ISC</div>
+          <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 600; margin-bottom: 0.35rem;">Council for the Indian School Certificate Examinations</p>
+          <p>Comprehensive Pure Sciences, Detailed Chemistry Equations &amp; Advanced Mathematics.</p>
+        </div>
+        <div class="board-card">
+          <div class="board-logo-txt">State Board</div>
+          <p style="font-size: 0.9rem; color: var(--text-dark); font-weight: 600; margin-bottom: 0.35rem;">Andhra Pradesh State Board (BIEAP / SSC)</p>
+          <p>State Textbook Curriculum, Model Papers &amp; Annual Board Exam Revision Drills.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       TUITION FEE STRUCTURE
+       ========================================================================= -->
+  <section class="section-padding bg-light-alt" id="fees">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge"><i class="fa-solid fa-indian-rupee-sign"></i> Transparent Pricing</span>
+        <h2 class="section-title">Affordable Monthly Tuition Fee</h2>
+        <p class="section-desc">Simple, transparent fee structure tailored to your academic standard and subject selection.</p>
+      </div>
+
+      <!-- Class Tier Selector Tabs -->
+      <div class="fee-tier-toggle-wrapper">
+        <div class="fee-tier-toggle" id="feeTierTabs">
+          <button type="button" class="fee-tab-btn active" data-tier="foundation">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Classes 8th, 9th &amp; 10th</span>
+            <span class="tab-badge-pill">Foundation &amp; Boards</span>
+          </button>
+          <button type="button" class="fee-tab-btn" data-tier="senior">
+            <i class="fa-solid fa-atom"></i>
+            <span>Classes 11th &amp; 12th</span>
+            <span class="tab-badge-pill">Senior Secondary</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- PANEL 1: CLASSES 8TH, 9TH & 10TH -->
+      <div class="fee-tier-panel active" id="feePanelFoundation">
+        <div class="fee-grid">
+          
+          <!-- 1 Subject (8th - 10th) -->
+          <div class="fee-card">
+            <h3>Single Subject</h3>
+            <p class="fee-card-sub">Choose any 1 subject (Physics, Chemistry, or Maths)</p>
+            <div class="fee-amount-box">
+              <span class="fee-amount">₹999</span>
+              <span class="fee-cycle">/ month</span>
+            </div>
+            <ul class="fee-features">
+              <li><i class="fa-solid fa-check"></i> <strong>1 Subject of your choice</strong></li>
+              <li><i class="fa-solid fa-check"></i> Dedicated 1-on-1 home study sessions</li>
+              <li><i class="fa-solid fa-check"></i> Chapter-wise notes &amp; practice worksheets</li>
+              <li><i class="fa-solid fa-check"></i> Monthly concept progress assessment</li>
+              <li><i class="fa-solid fa-check"></i> Direct doubt clearing with teacher</li>
+            </ul>
+            <a href="register.html?class=10th&subjects=1" class="btn btn-outline btn-block">Choose 1 Subject (₹999/mo)</a>
+          </div>
+
+          <!-- 2 Subjects (8th - 10th) -->
+          <div class="fee-card popular">
+            <div class="fee-badge">Most Popular</div>
+            <h3>Two Subjects</h3>
+            <p class="fee-card-sub">Choose any 2 subjects combination</p>
+            <div class="fee-amount-box">
+              <span class="fee-amount">₹1,999</span>
+              <span class="fee-cycle">/ month</span>
+            </div>
+            <ul class="fee-features">
+              <li><i class="fa-solid fa-check"></i> <strong>2 Subjects of your choice</strong></li>
+              <li><i class="fa-solid fa-check"></i> Comprehensive syllabus schedule</li>
+              <li><i class="fa-solid fa-check"></i> Bi-weekly chapter tests &amp; drills</li>
+              <li><i class="fa-solid fa-check"></i> School &amp; Board exam question bank practice</li>
+              <li><i class="fa-solid fa-check"></i> Parent consultation updates</li>
+            </ul>
+            <a href="register.html?class=10th&subjects=2" class="btn btn-primary btn-block">Choose 2 Subjects (₹1,999/mo)</a>
+          </div>
+
+          <!-- 3 Subjects (Complete PCM - 8th - 10th) -->
+          <div class="fee-card">
+            <div class="fee-badge" style="background: linear-gradient(135deg, #10b981 0%, #047857 100%); color: #fff;">Best Value</div>
+            <h3>Complete PCM</h3>
+            <p class="fee-card-sub">Physics + Chemistry + Mathematics</p>
+            <div class="fee-amount-box">
+              <span class="fee-amount">₹2,499</span>
+              <span class="fee-cycle">/ month</span>
+            </div>
+            <ul class="fee-features">
+              <li><i class="fa-solid fa-check"></i> <strong>All 3 Subjects (Physics + Chem + Maths)</strong></li>
+              <li><i class="fa-solid fa-check"></i> Complete science &amp; maths foundation</li>
+              <li><i class="fa-solid fa-check"></i> Rigorous weekly test series</li>
+              <li><i class="fa-solid fa-check"></i> Past 10-year board paper solving</li>
+              <li><i class="fa-solid fa-check"></i> Priority slot scheduling</li>
+            </ul>
+            <a href="register.html?class=10th&subjects=3" class="btn btn-teal btn-block">Choose Complete PCM (₹2,499/mo)</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PANEL 2: CLASSES 11TH & 12TH -->
+      <div class="fee-tier-panel" id="feePanelSenior">
+        <div class="fee-grid">
+          
+          <!-- 1 Subject (11th & 12th) -->
+          <div class="fee-card">
+            <h3>Single Subject</h3>
+            <p class="fee-card-sub">Choose any 1 subject (Physics, Chemistry, or Maths)</p>
+            <div class="fee-amount-box">
+              <span class="fee-amount">₹1,499</span>
+              <span class="fee-cycle">/ month</span>
+            </div>
+            <ul class="fee-features">
+              <li><i class="fa-solid fa-check"></i> <strong>1 Senior Secondary Subject</strong></li>
+              <li><i class="fa-solid fa-check"></i> In-depth derivation &amp; numerical practice</li>
+              <li><i class="fa-solid fa-check"></i> Chapter-wise advanced concept sheets</li>
+              <li><i class="fa-solid fa-check"></i> Monthly board exam simulation</li>
+              <li><i class="fa-solid fa-check"></i> 1-on-1 problem-solving mentorship</li>
+            </ul>
+            <a href="register.html?class=12th&subjects=1" class="btn btn-outline btn-block">Choose 1 Subject (₹1,499/mo)</a>
+          </div>
+
+          <!-- 2 Subjects (11th & 12th) -->
+          <div class="fee-card popular">
+            <div class="fee-badge">Most Popular</div>
+            <h3>Two Subjects</h3>
+            <p class="fee-card-sub">Choose any 2 subjects combination</p>
+            <div class="fee-amount-box">
+              <span class="fee-amount">₹2,999</span>
+              <span class="fee-cycle">/ month</span>
+            </div>
+            <ul class="fee-features">
+              <li><i class="fa-solid fa-check"></i> <strong>2 Subjects of your choice</strong></li>
+              <li><i class="fa-solid fa-check"></i> Rigorous senior secondary coverage</li>
+              <li><i class="fa-solid fa-check"></i> Bi-weekly timed numerical tests</li>
+              <li><i class="fa-solid fa-check"></i> Board exam question bank &amp; shortcuts</li>
+              <li><i class="fa-solid fa-check"></i> Direct parent academic consultation</li>
+            </ul>
+            <a href="register.html?class=12th&subjects=2" class="btn btn-primary btn-block">Choose 2 Subjects (₹2,999/mo)</a>
+          </div>
+
+          <!-- 3 Subjects (Complete PCM - 11th & 12th) -->
+          <div class="fee-card">
+            <div class="fee-badge" style="background: linear-gradient(135deg, #10b981 0%, #047857 100%); color: #fff;">Best Value</div>
+            <h3>Complete PCM</h3>
+            <p class="fee-card-sub">Physics + Chemistry + Mathematics</p>
+            <div class="fee-amount-box">
+              <span class="fee-amount">₹3,999</span>
+              <span class="fee-cycle">/ month</span>
+            </div>
+            <ul class="fee-features">
+              <li><i class="fa-solid fa-check"></i> <strong>All 3 Subjects (Physics + Chem + Maths)</strong></li>
+              <li><i class="fa-solid fa-check"></i> Complete 11th &amp; 12th Board &amp; Competitive Prep</li>
+              <li><i class="fa-solid fa-check"></i> Weekly full-length timed mock tests</li>
+              <li><i class="fa-solid fa-check"></i> Past 10-year board papers &amp; exemplar solutions</li>
+              <li><i class="fa-solid fa-check"></i> Priority slot scheduling</li>
+            </ul>
+            <a href="register.html?class=12th&subjects=3" class="btn btn-teal btn-block">Choose Complete PCM (₹3,999/mo)</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- No Online Payment Notice -->
+      <div class="no-payment-notice">
+        <div class="no-payment-notice-icon">
+          <i class="fa-solid fa-circle-info"></i>
+        </div>
+        <div>
+          <strong>Notice Regarding Tuition Fees:</strong>
+          <p>The tuition fee listed above is for informational purposes. <strong>No online payment is required on this website.</strong> After submitting your registration, the teacher will personally contact you to discuss your home address, slot timings, and start date.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       HOW REGISTRATION WORKS (ROADMAP)
+       ========================================================================= -->
+  <section class="section-padding" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge"><i class="fa-solid fa-route"></i> Simple Process</span>
+        <h2 class="section-title">How Tuition Booking Works</h2>
+        <p class="section-desc">Quick 4-step process to secure your preferred home tuition slot.</p>
+      </div>
+
+      <div class="steps-roadmap">
+        <div class="step-roadmap-card">
+          <div class="step-number">1</div>
+          <h4>Select Class &amp; Subjects</h4>
+          <p>Choose your academic standard (8th to 12th) and select 1, 2, or all 3 PCM subjects.</p>
+        </div>
+
+        <div class="step-roadmap-card">
+          <div class="step-number">2</div>
+          <h4>Pick Preferred Slot</h4>
+          <p>Select your convenient days of the week and preferred morning or evening time slot.</p>
+        </div>
+
+        <div class="step-roadmap-card">
+          <div class="step-number">3</div>
+          <h4>Submit &amp; Send WhatsApp</h4>
+          <p>Submit the form and click "Continue to WhatsApp" to send your registration slip to the teacher.</p>
+        </div>
+
+        <div class="step-roadmap-card">
+          <div class="step-number">4</div>
+          <h4>Teacher Consultation</h4>
+          <p>The teacher will personally call/WhatsApp you to confirm your slot and share the exact residence address &amp; directions.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3.5rem;">
+        <a href="register.html" class="btn btn-primary btn-lg" id="roadmapRegisterBtn">
+          <i class="fa-regular fa-paper-plane"></i> Start Registration Form
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FREQUENTLY ASKED QUESTIONS (FAQS)
+       ========================================================================= -->
+  <section class="section-padding bg-light-alt" id="faqs">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge"><i class="fa-solid fa-circle-question"></i> Help &amp; FAQs</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Everything you need to know about our home tuition services.</p>
+      </div>
+
+      <div class="faq-list">
+        
+        <div class="faq-item active">
+          <div class="faq-question">
+            <span>Where are the tuition classes conducted?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Classes are conducted strictly <strong>100% in-person at the Teacher's Residence Study</strong> located at <strong>PM Palem, Dharmapuram, Opp Living Space, Visakhapatnam, Andhra Pradesh</strong>. Students attend focused evening sessions (6:30 PM to 8:30 PM / 9:00 PM). We do not conduct online video classes or recorded lessons, ensuring maximum academic focus.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can a student register for multiple classes?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>No. A student can register for <strong>only one academic class at a time</strong> (e.g., either 10th Standard or 11th Standard). However, you can choose any combination of subjects (Physics, Chemistry, Mathematics) for that class.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do I need to pay any fee online during registration?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>No online payment is required on this website. Registration is completely free. Tuition fees are discussed and collected directly with the teacher after in-person consultation.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What happens after I submit the registration form?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>After clicking submit, your unique Registration ID will be generated and saved. You will be directed to send a pre-filled registration slip to the teacher on WhatsApp (+91 90630 30342). The teacher will then contact you to finalize the timings and share the residence location.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Which areas/localities are nearby the teacher's residence?</span>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Students comfortably travel from nearby residential areas across Visakhapatnam including PM Palem, Madhurawada, Dharmapuram, Kommadi, Yendada, MVP Colony, Rushikonda, and surrounding neighborhoods.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CALL TO ACTION BANNER
+       ========================================================================= -->
+  <section style="background: linear-gradient(135deg, var(--primary) 0%, #26352a 100%); color: var(--text-light); padding: 4.5rem 0; text-align: center;">
+    <div class="container container-narrow">
+      <h2 style="color: #FFFDF8; font-size: 2.35rem; margin-bottom: 1rem;">Ready to Boost Your Child's Academic Confidence?</h2>
+      <p style="color: #EDE3D3; font-size: 1.1rem; margin-bottom: 2rem;">
+        Slots for the upcoming academic term fill quickly. Register now to reserve your preferred days and time slot.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="register.html" class="btn btn-secondary btn-lg" style="color: var(--primary); font-weight: 700;">
+          <i class="fa-solid fa-calendar-plus"></i> Book Home Tuition Slot
+        </a>
+        <a href="https://wa.me/919063030342" target="_blank" class="btn btn-whatsapp btn-lg">
+          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <h3>EduNest Home Tuition</h3>
+          <p>
+            Premium in-person personalized home tutoring &amp; entrance coaching for Classes 8th to 12th in Physics, Chemistry, and Mathematics at teacher's residence study in PM Palem, Visakhapatnam across CBSE, ICSE, and State Boards.
+          </p>
+          <div style="display: flex; gap: 0.75rem; font-size: 1.25rem;">
+            <a href="https://wa.me/919063030342" target="_blank" style="color: #25D366;"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="tel:+919063030342" style="color: #38bdf8;"><i class="fa-solid fa-phone"></i></a>
+            <a href="mailto:edunest19@gmail.com" style="color: #fbbf24;"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Academic Classes</h4>
+          <ul>
+            <li><a href="register.html?class=8th">Class 8th Standard</a></li>
+            <li><a href="register.html?class=9th">Class 9th Standard</a></li>
+            <li><a href="register.html?class=10th">Class 10th Standard</a></li>
+            <li><a href="register.html?class=11th">Class 11th Standard</a></li>
+            <li><a href="register.html?class=12th">Class 12th Standard</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About Tuition</a></li>
+            <li><a href="#subjects">Subjects &amp; Topics</a></li>
+            <li><a href="#boards">Education Boards</a></li>
+            <li><a href="#fees">Fee Structure</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+            <li><a href="register.html">Register Online</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Teacher Contact</h4>
+          <ul>
+            <li><i class="fa-solid fa-user-tie" style="color: #38bdf8;"></i> <span>K. Sarada (M.Sc(pure physics),M.Phil)</span></li>
+            <li><i class="fa-solid fa-phone" style="color: #38bdf8;"></i> <span>+91 90630 30342</span></li>
+            <li><i class="fa-brands fa-whatsapp" style="color: #25D366;"></i> <span>+91 90630 30342</span></li>
+            <li><i class="fa-solid fa-location-dot" style="color: #fb7185;"></i> <span>PM Palem, Dharmapuram, Opp Living Space, Visakhapatnam, AP</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 EduNest Home Tuition. All Rights Reserved. In-Person Learning at PM Palem, Visakhapatnam.</p>
+        <a href="admin/login.html" class="teacher-portal-link" id="teacherPortalLink">
+          <i class="fa-solid fa-lock"></i> Teacher Portal Login
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

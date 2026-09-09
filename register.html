@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration & Slot Booking | EduNest Home Tuition</title>
+  <meta name="description" content="Register for personalized home tuition in Physics, Chemistry & Mathematics for Classes 8th to 12th.">
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="background-color: var(--bg-page);">
+
+  <!-- Simple Header -->
+  <header style="background: var(--bg-surface); border-bottom: 1px solid var(--border-light); padding: 1rem 0;">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div>
+          EduNest
+          <span class="brand-tagline">Home Tuition Registration</span>
+        </div>
+      </a>
+      <a href="index.html" class="btn btn-secondary btn-sm">
+        <i class="fa-solid fa-arrow-left"></i> Back to Home
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Registration Container -->
+  <main class="section-padding" style="padding-top: 3rem; padding-bottom: 5rem;">
+    <div class="container container-narrow">
+      
+      <!-- Wizard Title Header -->
+      <div class="wizard-header">
+        <span class="section-badge"><i class="fa-solid fa-file-pen"></i> Slot Reservation</span>
+        <h1 style="font-size: 2.25rem; margin-bottom: 0.5rem;">Home Tuition Registration Form</h1>
+        <p style="color: var(--text-muted); font-size: 1rem;">
+          Classes 8th to 12th &bull; In-Person at Teacher's Residence &bull; No online payment required
+        </p>
+      </div>
+
+      <!-- Step Progress Bar -->
+      <div class="wizard-progress-bar">
+        <div class="wizard-progress-fill" id="progressFill"></div>
+        
+        <div class="progress-step active" id="stepIndicator1">
+          <div class="step-indicator">1</div>
+          <span class="step-title">Academic Details</span>
+        </div>
+        <div class="progress-step" id="stepIndicator2">
+          <div class="step-indicator">2</div>
+          <span class="step-title">Contact Details</span>
+        </div>
+        <div class="progress-step" id="stepIndicator3">
+          <div class="step-indicator">3</div>
+          <span class="step-title">Tuition Timing</span>
+        </div>
+        <div class="progress-step" id="stepIndicator4">
+          <div class="step-indicator">4</div>
+          <span class="step-title">Review &amp; Submit</span>
+        </div>
+      </div>
+
+      <!-- Multi-step Form Wizard Box -->
+      <div class="wizard-box">
+        <form id="tuitionRegistrationForm" novalidate>
+          
+          <!-- ================================================================
+               STEP 1: ACADEMIC DETAILS
+               ================================================================ -->
+          <div class="wizard-step active" id="wizardStep1">
+            <h3 class="step-heading">Step 1 — Academic Details</h3>
+            <p class="step-subheading">Tell us about the student's current grade, school board, and subjects required.</p>
+
+            <!-- Student Name -->
+            <div class="form-group">
+              <label for="studentName" class="form-label">Student's Full Name <span class="required">*</span></label>
+              <input type="text" id="studentName" name="student_name" class="form-input" placeholder="Enter student's full name" required>
+              <div class="form-error" id="studentNameError">Please enter the student's full name.</div>
+            </div>
+
+            <!-- Academic Class (Single Selection Radio Cards) -->
+            <div class="form-group">
+              <label class="form-label">Academic Class <span class="required">*</span> (Select strictly ONE class)</label>
+              <div class="selection-grid-classes" id="classRadioGroup">
+                
+                <label class="radio-card">
+                  <input type="radio" name="academic_class" value="8th Standard" required>
+                  <div class="radio-card-content">
+                    <span class="radio-card-title">8th Standard</span>
+                  </div>
+                </label>
+
+                <label class="radio-card">
+                  <input type="radio" name="academic_class" value="9th Standard">
+                  <div class="radio-card-content">
+                    <span class="radio-card-title">9th Standard</span>
+                  </div>
+                </label>
+
+                <label class="radio-card">
+                  <input type="radio" name="academic_class" value="10th Standard">
+                  <div class="radio-card-content">
+                    <span class="radio-card-title">10th Standard</span>
+                  </div>
+                </label>
+
+                <label class="radio-card">
+                  <input type="radio" name="academic_class" value="11th Standard">
+                  <div class="radio-card-content">
+                    <span class="radio-card-title">11th Standard</span>
+                  </div>
+                </label>
+
+                <label class="radio-card">
+                  <input type="radio" name="academic_class" value="12th Standard">
+                  <div class="radio-card-content">
+                    <span class="radio-card-title">12th Standard</span>
+                  </div>
+                </label>
+
+              </div>
+              <div class="form-error" id="classError" style="display: none;">Please select an academic class.</div>
+            </div>
+
+            <!-- Education Board -->
+            <div class="form-group">
+              <label for="educationBoard" class="form-label">Education Board <span class="required">*</span></label>
+              <select id="educationBoard" name="board" class="form-select" required>
+                <option value="">-- Choose Education Board --</option>
+                <option value="CBSE">CBSE (Central Board of Secondary Education)</option>
+                <option value="ICSE">ICSE / ISC Board</option>
+                <option value="State Board">State Board (Andhra Pradesh State Board)</option>
+              </select>
+              <div class="form-error" id="boardError">Please select the education board.</div>
+            </div>
+
+            <!-- Subjects Selection (Checkbox Cards with Live Fee Update) -->
+            <div class="form-group">
+              <label class="form-label">Select Subjects <span class="required">*</span> (Choose 1, 2, or all 3 subjects)</label>
+              <div class="selection-grid-subjects">
+                
+                <!-- Physics -->
+                <label class="checkbox-card">
+                  <input type="checkbox" name="subjects" value="Physics" class="subject-checkbox">
+                  <div class="checkbox-card-content">
+                    <div class="checkbox-header">
+                      <div class="subject-badge-icon" style="background: #e6ede8; color: #35483A;">
+                        <i class="fa-solid fa-atom"></i>
+                      </div>
+                      <div class="custom-check-circle">
+                        <i class="fa-solid fa-check" style="font-size: 0.75rem;"></i>
+                      </div>
+                    </div>
+                    <div class="checkbox-title">Physics</div>
+                    <div class="checkbox-desc">Mechanics, Electricity, Optics &amp; Numerical Derivations.</div>
+                  </div>
+                </label>
+
+                <!-- Chemistry -->
+                <label class="checkbox-card">
+                  <input type="checkbox" name="subjects" value="Chemistry" class="subject-checkbox">
+                  <div class="checkbox-card-content">
+                    <div class="checkbox-header">
+                      <div class="subject-badge-icon" style="background: #f5eee6; color: #8A6A4A;">
+                        <i class="fa-solid fa-flask"></i>
+                      </div>
+                      <div class="custom-check-circle">
+                        <i class="fa-solid fa-check" style="font-size: 0.75rem;"></i>
+                      </div>
+                    </div>
+                    <div class="checkbox-title">Chemistry</div>
+                    <div class="checkbox-desc">Physical, Inorganic &amp; Organic Reactions.</div>
+                  </div>
+                </label>
+
+                <!-- Mathematics -->
+                <label class="checkbox-card">
+                  <input type="checkbox" name="subjects" value="Mathematics" class="subject-checkbox">
+                  <div class="checkbox-card-content">
+                    <div class="checkbox-header">
+                      <div class="subject-badge-icon" style="background: #fbf6ec; color: #C7A76C;">
+                        <i class="fa-solid fa-calculator"></i>
+                      </div>
+                      <div class="custom-check-circle">
+                        <i class="fa-solid fa-check" style="font-size: 0.75rem;"></i>
+                      </div>
+                    </div>
+                    <div class="checkbox-title">Mathematics</div>
+                    <div class="checkbox-desc">Algebra, Calculus, Trigonometry &amp; Geometry Proofs.</div>
+                  </div>
+                </label>
+
+              </div>
+              <div class="form-error" id="subjectError" style="display: none;">Please select at least one subject.</div>
+
+              <!-- Live Dynamic Fee Banner -->
+              <div class="live-fee-banner" id="liveFeeBanner">
+                <div class="live-fee-info">
+                  <h5>Calculated Monthly Tuition Fee</h5>
+                  <div class="live-fee-subjects" id="liveSubjectLabel">0 subjects selected</div>
+                </div>
+                <div class="live-fee-amount" id="liveFeeAmount">Select Subject</div>
+              </div>
+            </div>
+
+            <!-- Step 1 Navigation -->
+            <div class="wizard-actions" style="justify-content: flex-end;">
+              <button type="button" class="btn btn-primary btn-lg" id="btnStep1Next">
+                Continue to Contact Details <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+
+          <!-- ================================================================
+               STEP 2: CONTACT DETAILS
+               ================================================================ -->
+          <div class="wizard-step" id="wizardStep2">
+            <h3 class="step-heading">Step 2 — Contact Details</h3>
+            <p class="step-subheading">Parent contact information and student residential details for registration records.</p>
+
+            <!-- Parent Name -->
+            <div class="form-group">
+              <label for="parentName" class="form-label">Parent / Guardian Full Name <span class="required">*</span></label>
+              <input type="text" id="parentName" name="parent_name" class="form-input" placeholder="Enter parent or guardian name" required>
+              <div class="form-error" id="parentNameError">Please enter the parent or guardian name.</div>
+            </div>
+
+            <!-- Parent Primary Phone & WhatsApp Numbers (Both Mandatory) -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phoneNumber" class="form-label">Parent Primary Phone Number <span class="required">*</span></label>
+                <input type="tel" id="phoneNumber" name="phone" class="form-input" placeholder="10-digit primary mobile number" maxlength="10" required>
+                <div class="form-error" id="phoneError">Please enter a valid 10-digit parent phone number.</div>
+              </div>
+
+              <div class="form-group">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <label for="whatsappNumber" class="form-label" style="margin-bottom: 0;">Parent WhatsApp Number <span class="required">*</span></label>
+                  <label style="font-size: 0.8rem; color: var(--accent); cursor: pointer; display: flex; align-items: center; gap: 0.3rem;">
+                    <input type="checkbox" id="sameAsPhoneCheckbox"> Same as Primary Phone
+                  </label>
+                </div>
+                <input type="tel" id="whatsappNumber" name="whatsapp" class="form-input" placeholder="10-digit WhatsApp number" maxlength="10" required>
+                <div class="form-error" id="whatsappError">Please enter a valid 10-digit WhatsApp number.</div>
+              </div>
+            </div>
+
+            <!-- Student Mobile Number (Optional) & Email (Optional) -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="studentPhone" class="form-label">Student Mobile Number <span style="color: var(--text-muted); font-size: 0.8rem;">(Optional)</span></label>
+                <input type="tel" id="studentPhone" name="student_phone" class="form-input" placeholder="10-digit student mobile (optional)" maxlength="10">
+                <div class="form-error" id="studentPhoneError">Please enter a valid 10-digit mobile number if provided.</div>
+              </div>
+
+              <div class="form-group">
+                <label for="emailAddress" class="form-label">Email Address <span style="color: var(--text-muted); font-size: 0.8rem;">(Optional)</span></label>
+                <input type="email" id="emailAddress" name="email" class="form-input" placeholder="e.g. parent.name@example.com">
+                <div class="form-error" id="emailError">Please enter a valid email address.</div>
+              </div>
+            </div>
+
+            <!-- Residential Location / Address -->
+            <div class="form-group">
+              <label for="residentialLocation" class="form-label">Student's Residential Area / Locality <span class="required">*</span></label>
+              <textarea id="residentialLocation" name="location" class="form-textarea" rows="3" placeholder="Enter student's locality/area (e.g. PM Palem, Madhurawada, Dharmapuram, Kommadi, Visakhapatnam)" required></textarea>
+              <div class="form-error" id="locationError">Please enter your residential locality.</div>
+              <p class="form-helper"><i class="fa-solid fa-house-chimney" style="color: var(--accent);"></i> Note: Tuition classes are held 100% in-person at teacher's residence study (PM Palem, Dharmapuram, Opp Living Space, Visakhapatnam).</p>
+            </div>
+
+            <!-- Step 2 Navigation -->
+            <div class="wizard-actions">
+              <button type="button" class="btn btn-secondary" id="btnStep2Prev">
+                <i class="fa-solid fa-arrow-left"></i> Back
+              </button>
+              <button type="button" class="btn btn-primary btn-lg" id="btnStep2Next">
+                Continue to Tuition Timing <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+
+          <!-- ================================================================
+               STEP 3: TUITION PREFERENCES
+               ================================================================ -->
+          <div class="wizard-step" id="wizardStep3">
+            <h3 class="step-heading">Step 3 — Tuition Timing &amp; Slots</h3>
+            <p class="step-subheading">Choose convenient days of the week and preferred evening time slot.</p>
+
+            <!-- Preferred Days (Multi-select chips) -->
+            <div class="form-group">
+              <label class="form-label">Preferred Days of the Week <span class="required">*</span> (Select 1 or more)</label>
+              <div class="days-chips-group" id="daysChipGroup">
+                <div class="day-chip selected" data-day="Monday">Monday</div>
+                <div class="day-chip selected" data-day="Tuesday">Tuesday</div>
+                <div class="day-chip selected" data-day="Wednesday">Wednesday</div>
+                <div class="day-chip selected" data-day="Thursday">Thursday</div>
+                <div class="day-chip selected" data-day="Friday">Friday</div>
+                <div class="day-chip" data-day="Saturday">Saturday</div>
+                <div class="day-chip" data-day="Sunday">Sunday</div>
+              </div>
+              <div class="form-error" id="daysError" style="display: none;">Please select at least one preferred day.</div>
+            </div>
+
+            <!-- Specific Time Slot Selection (Evening Slots Only) -->
+            <div class="form-group">
+              <label class="form-label">Preferred Evening Time Slot <span class="required">*</span></label>
+              <div id="slotHelperNote" style="background: rgba(44, 76, 56, 0.07); border: 1px solid rgba(44, 76, 56, 0.2); border-radius: var(--radius-sm); padding: 0.65rem 0.9rem; margin-bottom: 0.85rem; font-size: 0.85rem; color: var(--text-dark);">
+                <i class="fa-solid fa-clock" style="color: var(--accent);"></i> Time slots are customized based on the number of subjects selected.
+              </div>
+              <div class="time-slots-grid" id="timeSlotsGrid">
+                <!-- Dynamically rendered based on subject count in Step 1 -->
+              </div>
+              <div class="form-error" id="slotError" style="display: none;">Please select a preferred time slot.</div>
+            </div>
+
+            <!-- Additional Requirements / Notes -->
+            <div class="form-group">
+              <label for="additionalRequirements" class="form-label">Specific Academic Requirements / Focus Topics <span style="color: var(--text-muted); font-size: 0.8rem;">(Optional)</span></label>
+              <textarea id="additionalRequirements" name="additional_message" class="form-textarea" rows="3" placeholder="e.g. Student needs extra guidance in Calculus derivations or EAMCET shortcuts."></textarea>
+            </div>
+
+            <!-- Step 3 Navigation -->
+            <div class="wizard-actions">
+              <button type="button" class="btn btn-secondary" id="btnStep3Prev">
+                <i class="fa-solid fa-arrow-left"></i> Back
+              </button>
+              <button type="button" class="btn btn-primary btn-lg" id="btnStep3Next">
+                Review &amp; Confirm <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+
+          <!-- ================================================================
+               STEP 4: REVIEW & SUBMIT
+               ================================================================ -->
+          <div class="wizard-step" id="wizardStep4">
+            <h3 class="step-heading">Step 4 — Review &amp; Submit Registration</h3>
+            <p class="step-subheading">Please review all details before submitting. After submission, you will be redirected to send your registration to the teacher via WhatsApp.</p>
+
+            <!-- Review Card Summary -->
+            <div class="review-card">
+              
+              <!-- Academic Review -->
+              <div class="review-section">
+                <div class="review-section-title"><i class="fa-solid fa-graduation-cap"></i> Academic Details</div>
+                <div class="review-grid">
+                  <div class="review-item">
+                    <label>Student Name</label>
+                    <span id="reviewStudentName">-</span>
+                  </div>
+                  <div class="review-item">
+                    <label>Academic Class</label>
+                    <span id="reviewClass">-</span>
+                  </div>
+                  <div class="review-item">
+                    <label>Education Board</label>
+                    <span id="reviewBoard">-</span>
+                  </div>
+                  <div class="review-item">
+                    <label>Selected Subjects</label>
+                    <span id="reviewSubjects">-</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Contact Review -->
+              <div class="review-section">
+                <div class="review-section-title"><i class="fa-solid fa-address-book"></i> Contact &amp; Location</div>
+                <div class="review-grid">
+                  <div class="review-item">
+                    <label>Parent / Guardian</label>
+                    <span id="reviewParentName">-</span>
+                  </div>
+                  <div class="review-item">
+                    <label>Parent Primary Phone</label>
+                    <span id="reviewPhone">-</span>
+                  </div>
+                  <div class="review-item">
+                    <label>Parent WhatsApp</label>
+                    <span id="reviewWhatsapp">-</span>
+                  </div>
+                  <div class="review-item">
+                    <label>Student Mobile</label>
+                    <span id="reviewStudentPhone">-</span>
+                  </div>
+                  <div class="review-item" style="grid-column: 1 / -1;">
+                    <label>Residential Location</label>
+                    <span id="reviewLocation">-</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Preference Review -->
+              <div class="review-section">
+                <div class="review-section-title"><i class="fa-regular fa-clock"></i> Tuition Preferences</div>
+                <div class="review-grid">
+                  <div class="review-item">
+                    <label>Preferred Days</label>
+                    <span id="reviewDays">-</span>
+                  </div>
+                  <div class="review-item">
+                    <label>Preferred Time Slot</label>
+                    <span id="reviewSlot">-</span>
+                  </div>
+                  <div class="review-item" style="grid-column: 1 / -1;">
+                    <label>Additional Requirements</label>
+                    <span id="reviewMessage">-</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Fee Highlight Box -->
+              <div class="review-fee-highlight">
+                <div>
+                  <small style="color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Applicable Monthly Tuition Fee</small>
+                  <div id="reviewFeeSubjectsLabel" style="font-weight: 600; color: var(--text-dark); font-size: 0.95rem;">-</div>
+                </div>
+                <div id="reviewFeeAmount" style="font-size: 2rem; font-weight: 800; color: var(--emerald); font-family: var(--font-heading);">
+                  ₹0
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Free Registration & WhatsApp Notice -->
+            <div class="no-payment-notice" style="margin-top: 0; margin-bottom: 2rem;">
+              <div class="no-payment-notice-icon"><i class="fa-brands fa-whatsapp" style="color: #25D366;"></i></div>
+              <div>
+                <strong>Next Step: WhatsApp Confirmation</strong>
+                <p>Clicking "Submit Registration" will save your details and prepare your registration slip to send directly to the teacher on WhatsApp.</p>
+              </div>
+            </div>
+
+            <!-- Step 4 Navigation -->
+            <div class="wizard-actions">
+              <button type="button" class="btn btn-secondary" id="btnStep4Prev">
+                <i class="fa-solid fa-arrow-left"></i> Edit Details
+              </button>
+              <button type="submit" class="btn btn-primary btn-lg" id="btnSubmitRegistration">
+                <i class="fa-regular fa-circle-check"></i> Submit Registration
+              </button>
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/whatsapp.js"></script>
+  <script src="js/registration.js"></script>
+</body>
+</html>

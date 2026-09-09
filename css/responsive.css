@@ -1,0 +1,208 @@
+/* ==========================================================================
+   EDUNEST HOME TUITION - RESPONSIVE STYLESHEET
+   Mobile, Tablet, and Desktop Breakpoint Adaptations
+   ========================================================================== */
+
+/* Large Tablets & Small Laptops (Max 1024px) */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hero-card {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .subjects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .fee-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .fee-card.popular {
+    transform: none;
+  }
+
+  .steps-roadmap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .time-slots-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile Devices & Tablets (Max 768px) */
+@media (max-width: 768px) {
+  .site-nav .nav-links {
+    position: fixed;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+    gap: 1.25rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-150%);
+    transition: transform 0.35s ease;
+    border-bottom: 1px solid var(--border-light);
+    z-index: 99;
+  }
+
+  .site-nav.menu-open .nav-links {
+    transform: translateY(0);
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .hero-title {
+    font-size: 2.35rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .section-title {
+    font-size: 1.95rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .selection-grid-classes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .selection-grid-subjects {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .wizard-box {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .wizard-progress-bar {
+    margin-bottom: 2rem;
+  }
+
+  .step-title {
+    display: none; /* Hide labels on mobile for clean look, show numbers only */
+  }
+
+  .step-indicator {
+    width: 38px;
+    height: 38px;
+    font-size: 0.9rem;
+  }
+
+  .time-slots-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .live-fee-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 1.25rem;
+  }
+
+  .fee-tier-toggle {
+    flex-direction: column;
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 440px;
+    gap: 0.35rem;
+  }
+
+  .fee-tab-btn {
+    border-radius: var(--radius-md);
+    padding: 0.65rem 1rem;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .steps-roadmap {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Extra Small Phones (Max 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  .selection-grid-classes {
+    grid-template-columns: 1fr;
+  }
+
+  .qc-subjects {
+    grid-template-columns: 1fr;
+  }
+
+  .success-card {
+    padding: 2.25rem 1.25rem;
+  }
+
+  .wizard-actions {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+
+  .wizard-actions .btn {
+    width: 100%;
+  }
+}

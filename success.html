@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Confirmed | EduNest Home Tuition</title>
+  <meta name="description" content="Your home tuition slot registration was submitted successfully. Connect with the teacher on WhatsApp.">
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="background-color: var(--bg-page); min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Simple Header -->
+  <header style="background: var(--bg-surface); border-bottom: 1px solid var(--border-light); padding: 1rem 0;">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div>
+          EduNest
+          <span class="brand-tagline">Personal Home Tuition</span>
+        </div>
+      </a>
+      <a href="index.html" class="btn btn-secondary btn-sm">
+        <i class="fa-solid fa-house"></i> Home
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Success Content -->
+  <main class="section-padding" style="flex-grow: 1; padding-top: 3.5rem; padding-bottom: 5rem;">
+    <div class="container container-narrow">
+      
+      <div class="success-card">
+        
+        <!-- Animated Success Checkmark -->
+        <div class="success-icon-wrapper">
+          <i class="fa-solid fa-check"></i>
+        </div>
+
+        <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-dark);">
+          Registration Submitted Successfully!
+        </h1>
+        <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          Thank you for registering for Home Tuition with <strong>K. Sarada</strong>.
+        </p>
+
+        <!-- Registration ID Badge -->
+        <div>
+          <span class="success-reg-badge" id="successRegBadge">
+            <i class="fa-solid fa-hashtag"></i> Registration ID: <span id="displayRegId">Loading...</span>
+          </span>
+        </div>
+
+        <p style="font-size: 0.95rem; color: var(--text-body); max-width: 540px; margin: 0 auto 1.5rem auto;">
+          Your registration details have been saved in our system. <strong>Please send the registration details to the teacher through WhatsApp</strong> to confirm your slot and receive the teacher's residence study address &amp; directions.
+        </p>
+
+        <!-- Registration Details Summary Box -->
+        <div class="success-summary-box" id="successSummaryBox">
+          <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; margin-bottom: 1rem; border-bottom: 1px solid var(--border-light); padding-bottom: 0.5rem;">
+            <i class="fa-solid fa-receipt"></i> Registration Slip Summary
+          </h4>
+          
+          <div class="review-grid">
+            <div class="review-item">
+              <label>Student Name</label>
+              <span id="succStudentName">-</span>
+            </div>
+            <div class="review-item">
+              <label>Academic Class &amp; Board</label>
+              <span id="succClassBoard">-</span>
+            </div>
+            <div class="review-item">
+              <label>Subjects</label>
+              <span id="succSubjects">-</span>
+            </div>
+            <div class="review-item">
+              <label>Monthly Tuition Fee</label>
+              <span id="succFee" style="color: var(--emerald); font-size: 1.1rem; font-weight: 800;">-</span>
+            </div>
+            <div class="review-item">
+              <label>Preferred Slot</label>
+              <span id="succSlot">-</span>
+            </div>
+            <div class="review-item">
+              <label>Parent Contact</label>
+              <span id="succContact">-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- WhatsApp Action Call to Action -->
+        <div class="success-actions">
+          
+          <!-- Primary Continue to WhatsApp Button -->
+          <a href="#" id="btnContinueWhatsApp" target="_blank" class="btn btn-whatsapp btn-lg btn-block" style="font-size: 1.15rem; padding: 1.1rem 2rem;">
+            <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem;"></i> Continue to WhatsApp
+          </a>
+
+          <div>
+            <button type="button" class="btn btn-secondary btn-block" id="btnCopyMessage">
+              <i class="fa-regular fa-copy"></i> Copy WhatsApp Message Text
+            </button>
+          </div>
+
+          <a href="index.html" class="btn btn-outline" style="margin-top: 0.5rem;">
+            <i class="fa-solid fa-house"></i> Back to Home
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border-light); background: var(--bg-surface);">
+    &copy; 2026 EduNest Home Tuition (PM Palem, Visakhapatnam). Need help? Call <span id="footerPhoneDisplay">+91 90630 30342</span>.
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/whatsapp.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      "use strict";
+
+      // Toast notification helper
+      function showToast(message, type = "info") {
+        const container = document.getElementById("toastContainer");
+        if (!container) return;
+        const toast = document.createElement("div");
+        toast.className = "toast";
+        const icon = type === "error" ? "fa-circle-exclamation" : "fa-circle-check";
+        toast.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${message}</span>`;
+        container.appendChild(toast);
+        setTimeout(() => { toast.remove(); }, 3500);
+      }
+
+      // 1. Retrieve Registration from Session Storage or URL Param
+      let registration = null;
+      try {
+        const raw = sessionStorage.getItem("edunest_last_registration");
+        if (raw) registration = JSON.parse(raw);
+      } catch (e) {
+        console.warn("Could not parse session registration", e);
+      }
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const regIdFromUrl = urlParams.get("id");
+
+      if (!registration && regIdFromUrl) {
+        // Fetch by ID from Service
+        const res = await EduNest.RegistrationService.getRegistrationById(regIdFromUrl);
+        if (res.success && res.data) {
+          registration = res.data;
+        }
+      }
+
+      // If opened without valid registration context, redirect to register page
+      if (!registration) {
+        showToast("No active registration found. Please complete the registration form.", "info");
+        setTimeout(() => {
+          window.location.href = "register.html";
+        }, 2000);
+        return;
+      }
+
+      // 2. Populate UI
+      const regCode = registration.reg_code || registration.id;
+      document.getElementById("displayRegId").textContent = regCode;
+      document.getElementById("succStudentName").textContent = registration.student_name;
+      
+      const boardStr = registration.board || "CBSE";
+      document.getElementById("succClassBoard").textContent = `${registration.class} (${boardStr})`;
+
+      const subjectsStr = Array.isArray(registration.subjects) 
+        ? registration.subjects.join(", ") 
+        : registration.subjects;
+      document.getElementById("succSubjects").textContent = subjectsStr;
+
+      const feeFormatted = new Intl.NumberFormat("en-IN", {
+        style: "currency",
+        currency: "INR",
+        maximumFractionDigits: 0
+      }).format(registration.monthly_fee || 0);
+      document.getElementById("succFee").textContent = `${feeFormatted} / mo`;
+
+      const daysStr = Array.isArray(registration.preferred_days) 
+        ? registration.preferred_days.join(", ") 
+        : (registration.preferred_days || "Flexible");
+      document.getElementById("succSlot").textContent = `${registration.preferred_time_slot || "7:30 PM – 8:30 PM"} (${daysStr})`;
+
+      const studentContactStr = registration.student_phone ? ` | Student: ${registration.student_phone}` : '';
+      document.getElementById("succContact").textContent = `${registration.parent_name} (Parent: ${registration.phone}${studentContactStr})`;
+
+      // 3. Configure WhatsApp Link
+      const btnWhatsApp = document.getElementById("btnContinueWhatsApp");
+      if (btnWhatsApp) {
+        const waUrl = WhatsAppUtil.generateWhatsAppUrl(registration);
+        btnWhatsApp.href = waUrl;
+      }
+
+      // 4. Copy WhatsApp Text Button
+      const btnCopy = document.getElementById("btnCopyMessage");
+      if (btnCopy) {
+        btnCopy.addEventListener("click", function () {
+          const text = WhatsAppUtil.formatRegistrationMessage(registration);
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(() => {
+              showToast("Registration message copied to clipboard!", "success");
+            }).catch(() => {
+              showToast("Failed to copy automatically. Please use the WhatsApp button.", "error");
+            });
+          } else {
+            showToast("Clipboard not supported. Please click Continue to WhatsApp.", "info");
+          }
+        });
+      }
+
+    });
+  </script>
+</body>
+</html>
